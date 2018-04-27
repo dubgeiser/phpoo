@@ -1,6 +1,6 @@
 <?php
-namespace Trump;
 
+namespace Trump;
 
 /**
  * Wraps calls to the public whatdoestrumpthink.com API.
@@ -11,8 +11,8 @@ class Api
     private $version;
 
     /**
-     * @param string[optional] $url The URL of the API
-     * @param int[optional] $version The version of the API.
+     * @param string[optional] $url     The URL of the API
+     * @param int[optional]    $version The version of the API.
      */
     public function __construct($url = 'https://api.whatdoestrumpthink.com/api', $version = 1)
     {
