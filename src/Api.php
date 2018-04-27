@@ -1,29 +1,38 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Trump;
+
+use function file_get_contents;
+use function json_decode;
+use function urlencode;
 
 /**
  * Wraps calls to the public whatdoestrumpthink.com API.
  */
 class Api
 {
+    /** @var string The url of the api. */
     private $url;
+
+    /** @var int The version of the api */
     private $version;
 
     /**
      * @param string[optional] $url     The URL of the API
      * @param int[optional]    $version The version of the API.
      */
-    public function __construct($url = 'https://api.whatdoestrumpthink.com/api', $version = 1)
+    public function __construct(string $url = 'https://api.whatdoestrumpthink.com/api', int $version = 1)
     {
-        $this->url = $url;
+        $this->url     = $url;
         $this->version = $version;
     }
 
     /**
      * @return string A random Trump quote.
      */
-    public function getRandomQuote()
+    public function getRandomQuote() : string
     {
         return $this->getMessage('quotes/random');
     }
@@ -32,7 +41,7 @@ class Api
      * @param string $name The name to whom the quote should be addressed.
      * @return string A personalized Trump quote.
      */
-    public function getPersonalizedQuote($name)
+    public function getPersonalizedQuote(string $name) : string
     {
         return $this->getMessage('quotes/personalized?q=' . urlencode($name));
     }
@@ -41,7 +50,7 @@ class Api
      * @param string $method The method to call on the API.
      * @return string The message of the json response of the given method.
      */
-    private function getMessage($method)
+    private function getMessage(string $method) : string
     {
         return json_decode($this->doRequest($method))->message;
     }
@@ -50,7 +59,7 @@ class Api
      * @param string $method The method to call on the API.
      * @return string The repsonse of the request as a JSON string.
      */
-    private function doRequest($method)
+    private function doRequest(string $method) : string
     {
         return file_get_contents($this->buildRequestUrl($method));
     }
@@ -59,7 +68,7 @@ class Api
      * @param string $method The method that we are going to call on the API.
      * @return string The full url that can be GET'd.
      */
-    private function buildRequestUrl($method)
+    private function buildRequestUrl(string $method) : string
     {
         return $this->url . '/v' . $this->version . '/' . $method;
     }
