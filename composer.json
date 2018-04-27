@@ -1,0 +1,13 @@
+{
+    "name": "digi/trump",
+    "description": "Library to fetch Trump quotes.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Per Juchtmans",
+            "email": "per.juchtmans@digipolis.gent"
+        }
+    ],
+    "require": {}
+}
