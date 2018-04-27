@@ -1,4 +1,21 @@
 parameters:
+    ascii:
+        failed: ~
+        succeeded: ~
     git_dir: .
     bin_dir: vendor/bin
-    tasks: null
+    tasks:
+        file_size:
+            max_size: 2M
+        phpcs:
+            standard: "Doctrine"
+            ignore_patterns:
+                - "bin/*.php"
+                - "tests/*.php"
+                - "src/Kernel.php"
+                - "vendor/**/*"
+        git_blacklist:
+            keywords:
+                - "die("
+                - "dump("
+                - "var_dump("
