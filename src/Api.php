@@ -25,7 +25,25 @@ class Api
      */
     public function getRandomQuote()
     {
-        return json_decode($this->doRequest('quotes/random'))->message;
+        return $this->getMessage('quotes/random');
+    }
+
+    /**
+     * @param string $name The name to whom the quote should be addressed.
+     * @return string A personalized Trump quote.
+     */
+    public function getPersonalizedQuote($name)
+    {
+        return $this->getMessage('quotes/personalized?q=' . urlencode($name));
+    }
+
+    /**
+     * @param string $method The method to call on the API.
+     * @return string The message of the json response of the given method.
+     */
+    private function getMessage($method)
+    {
+        return json_decode($this->doRequest($method))->message;
     }
 
     /**
