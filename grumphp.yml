@@ -7,6 +7,8 @@ parameters:
     tasks:
         file_size:
             max_size: 2M
+        phpstan:
+            level: 5
         phpcs:
             standard: "Doctrine"
             ignore_patterns:
