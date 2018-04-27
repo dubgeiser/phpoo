@@ -20,8 +20,8 @@ class Api
     private $version;
 
     /**
-     * @param string[optional] $url     The URL of the API
-     * @param int[optional]    $version The version of the API.
+     * @param string $url     (optional) The URL of the API
+     * @param int    $version (optional) The version of the API.
      */
     public function __construct(string $url = 'https://api.whatdoestrumpthink.com/api', int $version = 1)
     {
