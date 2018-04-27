@@ -47,6 +47,14 @@ class Api
     }
 
     /**
+     * @return string[] List of all Trump quotes.
+     */
+    public function getAllRandomQuotes() : array
+    {
+        return json_decode($this->doRequest('quotes'))->messages->non_personalized;
+    }
+
+    /**
      * @param string $method The method to call on the API.
      * @return string The message of the json response of the given method.
      */
