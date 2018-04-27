@@ -1,6 +1,7 @@
 <?php
+require 'vendor/autoload.php';
 
-require_once 'Api.php';
+use Trump\Api;
 
 
 $api = new Api();
