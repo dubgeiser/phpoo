@@ -10,7 +10,7 @@ parameters:
         phpstan:
             level: 2
         phpcs:
-            standard: "Doctrine"
+            standard: "PSR2"
             ignore_patterns:
                 - "bin/*.php"
                 - "tests/*.php"

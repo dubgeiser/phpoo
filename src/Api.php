@@ -13,10 +13,14 @@ use function urlencode;
  */
 class Api
 {
-    /** @var string The url of the api. */
+    /**
+     * @var string The url of the api.
+     */
     private $url;
 
-    /** @var int The version of the api */
+    /**
+     * @var int The version of the api
+     */
     private $version;
 
     /**
