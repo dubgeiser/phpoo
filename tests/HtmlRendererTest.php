@@ -20,6 +20,9 @@ class HtmlRendererTest extends TestCase
                 new Author('Per')
             )
         );
-        $this->assertContains('<h1>TEST -- Per</h1>', (string) $renderer);
+        $this->assertContains(
+            '<blockquote><p>TEST -- Per</blockquote></p>',
+            (string) $renderer
+        );
     }
 }

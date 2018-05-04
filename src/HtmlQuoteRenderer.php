@@ -13,11 +13,11 @@ class HtmlQuoteRenderer implements Renderable
 
     public function __toString()
     {
-        return '<h1>'
+        return '<blockquote><p>'
             . (string) $this->quote->getMessage()
             . ' -- '
             .  (string) $this->quote->getAuthor()
-            . '</h1>'
+            . '</blockquote></p>'
             . "\n";
     }
 }
