@@ -11,6 +11,11 @@ class QuoteGenerator
 
     public function __construct(QuoteSource $source)
     {
+        $this->setSource($source);
+    }
+
+    public function setSource(QuoteSource $source)
+    {
         $this->source = $source;
     }
 

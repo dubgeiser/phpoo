@@ -9,15 +9,11 @@ use Quotes\QuoteGenerator;
 
 class QuoteGeneratorTest extends TestCase
 {
-    public function testTrumpQuote()
+    public function testDifferentQuoteSources()
     {
         $g = new QuoteGenerator(new \Quotes\Trump\QuoteSource());
         $this->assertRandomQuote($g);
-    }
-
-    public function testKanyeQuote()
-    {
-        $g = new QuoteGenerator(new \Quotes\Kanye\QuoteSource());
+        $g->setSource(new \Quotes\Kanye\QuoteSource());
         $this->assertRandomQuote($g);
     }
 
