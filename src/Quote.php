@@ -38,4 +38,9 @@ class Quote
         return $this->message = $other->message
             && $this->author = $other->author;
     }
+
+    public function __toString()
+    {
+        return (string) $this->message . ' -- ' . (string) $this->author;
+    }
 }
