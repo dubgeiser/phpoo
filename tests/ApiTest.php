@@ -34,13 +34,16 @@ class ApiTest extends TestCase
     public function testGetRandomQuote() : void
     {
         $quote = $this->api->getRandomQuote();
-        $this->assertInternalType('string', $quote);
-        $this->assertNotEmpty($quote);
+        $this->assertInstanceOf('Trump\Quote', $quote);
+        $this->assertNotEmpty((string)$quote);
     }
 
     public function testGetPersonalizedQuote() : void
     {
-        $this->assertContains('Per', $this->api->getPersonalizedQuote('Per'));
+        $this->assertContains(
+            'Per',
+            (string)$this->api->getPersonalizedQuote('Per')
+        );
     }
 
     public function testGetAllRandomQuotesReturnsAcoupleOfQuotes() : void

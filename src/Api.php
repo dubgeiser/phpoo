@@ -34,24 +34,34 @@ class Api
     }
 
     /**
-     * @return string A random Trump quote.
+     * @return Quote A random Trump quote.
      */
-    public function getRandomQuote() : string
+    public function getRandomQuote() : Quote
     {
-        return $this->getMessage('quotes/random');
+        return new AttributableQuote(
+            new Message($this->getMessage('quotes/random')),
+            new Author('Trump')
+        );
     }
 
     /**
      * @param string $name The name to whom the quote should be addressed.
-     * @return string A personalized Trump quote.
+     * @return Quote A personalized Trump quote.
      */
-    public function getPersonalizedQuote(string $name) : string
+    public function getPersonalizedQuote(string $name) : Quote
     {
-        return $this->getMessage('quotes/personalized?q=' . urlencode($name));
+        return new AttributableQuote(
+            new Message(
+                $this->getMessage('quotes/personalized?q=' . urlencode($name))
+            ),
+            new Author('Trump')
+        );
     }
 
     /**
      * @return string[] List of all Trump quotes.
+     *
+     * TODO Must be list of Quote's or a QuoteList or something.
      */
     public function getAllRandomQuotes() : array
     {
