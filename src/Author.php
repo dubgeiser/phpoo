@@ -1,18 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Quotes;
+
+use function assert;
+use function mb_strlen;
+use function sprintf;
 
 /**
  * The author of quote.
  */
 class Author
 {
-    const NAME_LEN_MIN = 1;
-    const NAME_LEN_MAX = 200;
+    public const NAME_LEN_MIN = 1;
+    public const NAME_LEN_MAX = 200;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
     /**
@@ -24,9 +28,9 @@ class Author
         assert(
             mb_strlen($name) >= self::NAME_LEN_MIN
             && mb_strlen($name) <= self::NAME_LEN_MAX,
-            new AuthorNameLengthException(
+            new AuthorNameLengthError(
                 sprintf(
-                    "Author name must be between %d and %d chars",
+                    'Author name must be between %d and %d chars',
                     self::NAME_LEN_MIN,
                     self::NAME_LEN_MAX
                 )
@@ -36,17 +40,14 @@ class Author
         $this->name = $name;
     }
 
-    public function equals(Author $other)
+    public function equals(Author $other) : bool
     {
         // Note: Author is actually more of an entity, but this will suffice for
         // demo purposes.
-        return $this->name == $other->name;
+        return $this->name === $other->name;
     }
 
-    /**
-     * @return string
-     */
-    public function __toString()
+    public function __toString() : string
     {
         return $this->name;
     }

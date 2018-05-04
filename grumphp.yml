@@ -8,9 +8,9 @@ parameters:
         file_size:
             max_size: 2M
         phpstan:
-            level: 2
+            level: 5
         phpcs:
-            standard: "PSR2"
+            standard: "Doctrine"
             ignore_patterns:
                 - "bin/*.php"
                 - "tests/*.php"

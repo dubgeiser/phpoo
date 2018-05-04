@@ -4,36 +4,27 @@ declare(strict_types=1);
 
 namespace Quotes\Trump;
 
-use Quotes\AttributableQuote;
 use Quotes\Author;
-use Quotes\Message;
 use Quotes\Quote;
 use Quotes\QuoteStrategy;
+use function file_get_contents;
+use function json_decode;
 
 /**
  * Wraps calls to the public whatdoestrumpthink.com API.
  */
 class QuoteSource implements \Quotes\QuoteSource
 {
-    /**
-     * @var string The url of the api.
-     */
+    /** @var string The url of the api. */
     private $url;
 
-    /**
-     * @var int The version of the api
-     */
+    /** @var int The version of the api */
     private $version;
 
-    /**
-     * @var Author
-     */
+    /** @var Author */
     private $author;
 
-    /**
-     * All the quotes.
-     * @var array
-     */
+    /** @var string[] */
     private $quotes;
 
     /**
@@ -44,9 +35,9 @@ class QuoteSource implements \Quotes\QuoteSource
     {
         $this->url     = $url;
         $this->version = $version;
-        $this->quotes = json_decode($this->doRequest('quotes'))
+        $this->quotes  = json_decode($this->doRequest('quotes'))
             ->messages->non_personalized;
-        $this->author = new Author('Trump');
+        $this->author  = new Author('Trump');
     }
 
     /**
@@ -56,22 +47,6 @@ class QuoteSource implements \Quotes\QuoteSource
     {
         $strategy->setAuthor($this->author);
         return $strategy->retrieve($this->quotes);
-
-
-
-        return new AttributableQuote(
-            new Message($this->getMessage('quotes/random')),
-            new Author('Trump')
-        );
-    }
-
-    /**
-     * @param string $method The method to call on the API.
-     * @return string The message of the json response of the given method.
-     */
-    private function getMessage(string $method) : string
-    {
-        return json_decode($this->doRequest($method))->message;
     }
 
     /**

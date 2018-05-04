@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Quotes;
 
 /**
@@ -7,9 +9,7 @@ namespace Quotes;
  */
 class Message
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $text;
 
     /**
@@ -20,9 +20,9 @@ class Message
         $this->text = $text;
     }
 
-    public function equals(Message $other)
+    public function equals(Message $other) : bool
     {
-        return $this->text = $other->text;
+        return $this->text === $other->text;
     }
 
     public function __toString() : string

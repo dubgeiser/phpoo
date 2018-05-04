@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Quotes;
 
 class QuoteGenerator
 {
-    /**
-     * @var QuoteSource
-     */
+    /** @var QuoteSource */
     private $source;
 
     public function __construct(QuoteSource $source)
@@ -14,7 +14,7 @@ class QuoteGenerator
         $this->setSource($source);
     }
 
-    public function setSource(QuoteSource $source)
+    public function setSource(QuoteSource $source) : void
     {
         $this->source = $source;
     }

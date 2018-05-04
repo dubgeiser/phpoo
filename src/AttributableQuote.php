@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Quotes;
 
 /**
@@ -7,20 +9,16 @@ namespace Quotes;
  */
 class AttributableQuote implements Quote
 {
-    /**
-     * @var Message
-     */
+    /** @var Message */
     private $message;
 
-    /**
-     * @var Author
-     */
+    /** @var Author */
     private $author;
 
     public function __construct(Message $message, Author $author)
     {
         $this->message = $message;
-        $this->author = $author;
+        $this->author  = $author;
     }
 
     public function getMessage() : Message
@@ -35,11 +33,11 @@ class AttributableQuote implements Quote
 
     public function equals(AttributableQuote $other) : bool
     {
-        return $this->message = $other->message
-            && $this->author = $other->author;
+        return $this->getMessage() === $other->getMessage()
+            && $this->getAuthor()  === $other->getAuthor();
     }
 
-    public function __toString()
+    public function __toString() : string
     {
         return (string) $this->message . ' -- ' . (string) $this->author;
     }
