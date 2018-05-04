@@ -5,7 +5,7 @@ namespace Trump;
 /**
  * A quote coming from an api.
  */
-class AttributableQuote
+class AttributableQuote implements Quote
 {
     /**
      * @var Message
