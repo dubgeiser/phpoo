@@ -16,7 +16,7 @@ use Quotes\Quote;
 /**
  * Wraps calls to the public whatdoestrumpthink.com API.
  */
-class Api
+class QuoteSource implements \Quotes\QuoteSource
 {
     /**
      * @var string The url of the api.
