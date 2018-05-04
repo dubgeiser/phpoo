@@ -19,8 +19,8 @@ class QuoteGenerator
         $this->source = $source;
     }
 
-    public function retrieve() : Quote
+    public function retrieve(QuoteStrategy $strategy) : Quote
     {
-        return $this->source->retrieve();
+        return $this->source->retrieve($strategy);
     }
 }

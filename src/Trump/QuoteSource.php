@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace Quotes\Trump;
 
-use function file_get_contents;
-use function json_decode;
-use function urlencode;
-
 use Quotes\AttributableQuote;
 use Quotes\Author;
 use Quotes\Message;
 use Quotes\Quote;
+use Quotes\QuoteStrategy;
 
 /**
  * Wraps calls to the public whatdoestrumpthink.com API.
@@ -29,6 +26,17 @@ class QuoteSource implements \Quotes\QuoteSource
     private $version;
 
     /**
+     * @var Author
+     */
+    private $author;
+
+    /**
+     * All the quotes.
+     * @var array
+     */
+    private $quotes;
+
+    /**
      * @param string $url     (optional) The URL of the API
      * @param int    $version (optional) The version of the API.
      */
@@ -36,13 +44,21 @@ class QuoteSource implements \Quotes\QuoteSource
     {
         $this->url     = $url;
         $this->version = $version;
+        $this->quotes = json_decode($this->doRequest('quotes'))
+            ->messages->non_personalized;
+        $this->author = new Author('Trump');
     }
 
     /**
      * @return Quote A random Trump quote.
      */
-    public function retrieve() : Quote
+    public function retrieve(QuoteStrategy $strategy) : Quote
     {
+        $strategy->setAuthor($this->author);
+        return $strategy->retrieve($this->quotes);
+
+
+
         return new AttributableQuote(
             new Message($this->getMessage('quotes/random')),
             new Author('Trump')

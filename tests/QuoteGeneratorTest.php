@@ -5,6 +5,7 @@ namespace Test\Quotes;
 
 use PHPUnit\Framework\TestCase;
 use Quotes\QuoteGenerator;
+use Quotes\RandomStrategy;
 
 
 class QuoteGeneratorTest extends TestCase
@@ -19,7 +20,10 @@ class QuoteGeneratorTest extends TestCase
 
     private function assertRandomQuote(QuoteGenerator $g)
     {
-        $this->assertInstanceOf('Quotes\Quote', $g->retrieve());
-        $this->assertNotEmpty((string)$g->retrieve());
+        $this->assertInstanceOf(
+            'Quotes\Quote',
+            $g->retrieve(new RandomStrategy())
+        );
+        $this->assertNotEmpty((string)$g->retrieve(new RandomStrategy()));
     }
 }

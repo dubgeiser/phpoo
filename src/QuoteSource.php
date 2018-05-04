@@ -4,5 +4,5 @@ namespace Quotes;
 
 interface QuoteSource
 {
-    public function retrieve() : Quote;
+    public function retrieve(QuoteStrategy $strategy) : Quote;
 }
