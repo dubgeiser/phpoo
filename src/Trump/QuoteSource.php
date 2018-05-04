@@ -41,36 +41,12 @@ class QuoteSource implements \Quotes\QuoteSource
     /**
      * @return Quote A random Trump quote.
      */
-    public function getRandomQuote() : Quote
+    public function retrieve() : Quote
     {
         return new AttributableQuote(
             new Message($this->getMessage('quotes/random')),
             new Author('Trump')
         );
-    }
-
-    /**
-     * @param string $name The name to whom the quote should be addressed.
-     * @return Quote A personalized Trump quote.
-     */
-    public function getPersonalizedQuote(string $name) : Quote
-    {
-        return new AttributableQuote(
-            new Message(
-                $this->getMessage('quotes/personalized?q=' . urlencode($name))
-            ),
-            new Author('Trump')
-        );
-    }
-
-    /**
-     * @return string[] List of all Trump quotes.
-     *
-     * TODO Must be list of Quote's or a QuoteList or something.
-     */
-    public function getAllRandomQuotes() : array
-    {
-        return json_decode($this->doRequest('quotes'))->messages->non_personalized;
     }
 
     /**

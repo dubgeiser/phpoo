@@ -4,5 +4,5 @@ namespace Quotes;
 
 interface QuoteSource
 {
-    public function getRandomQuote() : Quote;
+    public function retrieve() : Quote;
 }

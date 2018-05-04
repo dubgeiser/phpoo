@@ -9,7 +9,7 @@ use Quotes\AttributableQuote;
 
 class QuoteSource implements \Quotes\QuoteSource
 {
-    public function getRandomQuote(): Quote
+    public function retrieve(): Quote
     {
         return new AttributableQuote(new Message('TEST'), new Author('Kanye'));
     }

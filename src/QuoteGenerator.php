@@ -21,6 +21,6 @@ class QuoteGenerator
 
     public function randomQuote() : Quote
     {
-        return $this->source->getRandomQuote();
+        return $this->source->retrieve();
     }
 }
