@@ -23,7 +23,17 @@ class Quote
         $this->author = $author;
     }
 
-    public function equals(Quote $other)
+    public function getMessage() : Message
+    {
+        return $this->message;
+    }
+
+    public function getAuthor() : Author
+    {
+        return $this->author;
+    }
+
+    public function equals(Quote $other) : bool
     {
         return $this->message = $other->message
             && $this->author = $other->author;
