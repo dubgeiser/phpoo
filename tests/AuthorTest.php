@@ -13,4 +13,20 @@ class AuthorTest extends TestCase
         $a = new Author('Per');
         $this->assertEquals('Per', (string) $a);
     }
+
+    /**
+     * @expectedException Quotes\AuthorNameLengthError
+     */
+    public function testTooShortNameThrowsException()
+    {
+        $a = new Author("");
+    }
+
+    /**
+     * @expectedException Quotes\AuthorNameLengthError
+     */
+    public function testTooLongNameThrowsException()
+    {
+        $a = new Author('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+    }
 }
