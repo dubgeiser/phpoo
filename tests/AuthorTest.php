@@ -1,9 +1,9 @@
 <?php
 
-namespace Test\Trump;
+namespace Test\Quotes;
 
 use PHPUnit\Framework\TestCase;
-use Trump\Author;
+use Quotes\Author;
 
 
 class AuthorTest extends TestCase

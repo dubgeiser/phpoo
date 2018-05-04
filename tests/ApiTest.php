@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Test\Trump;
+namespace Test\Quotes;
 
 use PHPUnit\Framework\TestCase;
-use Trump\Api;
+use Quotes\Api;
 
 
 /**
- * @coversDefaultClass \Trump\Api
+ * @coversDefaultClass \Quotes\Api
  * @covers ::<!public>
  */
 class ApiTest extends TestCase
 {
 
-    /** @var \Trump\Api */
+    /** @var \Quotes\Api */
     private $api;
 
     public function setUp()
@@ -34,7 +34,7 @@ class ApiTest extends TestCase
     public function testGetRandomQuote() : void
     {
         $quote = $this->api->getRandomQuote();
-        $this->assertInstanceOf('Trump\Quote', $quote);
+        $this->assertInstanceOf('Quotes\Quote', $quote);
         $this->assertNotEmpty((string)$quote);
     }
 

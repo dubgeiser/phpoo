@@ -1,6 +1,6 @@
 <?php
 
-namespace Trump;
+namespace Quotes;
 
 class HtmlQuoteRenderer implements Renderable
 {

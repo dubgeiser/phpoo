@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Trump;
+namespace Quotes;
 
 use function file_get_contents;
 use function json_decode;

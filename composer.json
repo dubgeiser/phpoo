@@ -12,8 +12,8 @@
     "require": {},
     "autoload" : {
         "psr-4": {
-            "Trump\\": "src/",
-            "Test\\Trump\\": "tests/"
+            "Quotes\\": "src/",
+            "Test\\Quotes\\": "tests/"
         }
     },
     "require-dev": {

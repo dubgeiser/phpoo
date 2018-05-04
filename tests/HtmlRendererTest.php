@@ -1,13 +1,13 @@
 <?php
 
-namespace Test\Trump;
+namespace Test\Quotes;
 
 use PHPUnit\Framework\TestCase;
 
-use Trump\Author;
-use Trump\HtmlQuoteRenderer;
-use Trump\Message;
-use Trump\AttributableQuote;
+use Quotes\Author;
+use Quotes\HtmlQuoteRenderer;
+use Quotes\Message;
+use Quotes\AttributableQuote;
 
 
 class HtmlRendererTest extends TestCase

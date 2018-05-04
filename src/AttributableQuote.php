@@ -1,6 +1,6 @@
 <?php
 
-namespace Trump;
+namespace Quotes;
 
 /**
  * A quote coming from an api.

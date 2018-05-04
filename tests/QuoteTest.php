@@ -1,12 +1,12 @@
 <?php
 
-namespace Test\Trump;
+namespace Test\Quotes;
 
 use PHPUnit\Framework\TestCase;
 
-use Trump\AttributableQuote;
-use Trump\Author;
-use Trump\Message;
+use Quotes\AttributableQuote;
+use Quotes\Author;
+use Quotes\Message;
 
 class QuoteTest extends TestCase
 {
