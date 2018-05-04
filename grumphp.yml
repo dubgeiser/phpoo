@@ -8,7 +8,7 @@ parameters:
         file_size:
             max_size: 2M
         phpstan:
-            level: 5
+            level: 2
         phpcs:
             standard: "Doctrine"
             ignore_patterns:
