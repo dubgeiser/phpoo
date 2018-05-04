@@ -19,7 +19,7 @@ class QuoteGenerator
         $this->source = $source;
     }
 
-    public function randomQuote() : Quote
+    public function retrieve() : Quote
     {
         return $this->source->retrieve();
     }

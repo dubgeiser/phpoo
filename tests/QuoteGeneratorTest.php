@@ -19,7 +19,7 @@ class QuoteGeneratorTest extends TestCase
 
     private function assertRandomQuote(QuoteGenerator $g)
     {
-        $this->assertInstanceOf('Quotes\Quote', $g->randomQuote());
-        $this->assertNotEmpty((string)$g->randomQuote());
+        $this->assertInstanceOf('Quotes\Quote', $g->retrieve());
+        $this->assertNotEmpty((string)$g->retrieve());
     }
 }
