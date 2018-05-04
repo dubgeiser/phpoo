@@ -28,6 +28,9 @@ class ApiTest extends TestCase
         $this->api = null;
     }
 
+    /**
+     * @covers ::getRandomQuote
+     */
     public function testGetRandomQuote() : void
     {
         $quote = $this->api->getRandomQuote();
