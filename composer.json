@@ -12,7 +12,8 @@
     "require": {},
     "autoload" : {
         "psr-4": {
-            "Trump\\": "src/"
+            "Trump\\": "src/",
+            "Test\\": "tests/"
         }
     },
     "require-dev": {
