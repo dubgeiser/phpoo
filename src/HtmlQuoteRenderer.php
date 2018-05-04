@@ -2,11 +2,13 @@
 
 namespace Trump;
 
+use Trump\AttributableQuote;
+
 class HtmlQuoteRenderer implements Renderable
 {
     private $quote;
 
-    public function __construct(Quote $quote)
+    public function __construct(AttributableQuote $quote)
     {
         $this->quote = $quote;
     }

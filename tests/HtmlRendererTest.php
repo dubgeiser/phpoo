@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 use Trump\Author;
 use Trump\HtmlQuoteRenderer;
 use Trump\Message;
-use Trump\Quote;
+use Trump\AttributableQuote;
 
 
 class HtmlRendererTest extends TestCase
@@ -15,7 +15,7 @@ class HtmlRendererTest extends TestCase
     public function testOutput()
     {
         $renderer = new HtmlQuoteRenderer(
-            new Quote(
+            new AttributableQuote(
                 new Message('TEST'),
                 new Author('Per')
             )

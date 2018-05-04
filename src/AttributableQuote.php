@@ -5,7 +5,7 @@ namespace Trump;
 /**
  * A quote coming from an api.
  */
-class Quote
+class AttributableQuote
 {
     /**
      * @var Message
@@ -33,7 +33,7 @@ class Quote
         return $this->author;
     }
 
-    public function equals(Quote $other) : bool
+    public function equals(AttributableQuote $other) : bool
     {
         return $this->message = $other->message
             && $this->author = $other->author;
