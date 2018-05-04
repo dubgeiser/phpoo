@@ -12,9 +12,9 @@ class QuoteGeneratorTest extends TestCase
     public function testDifferentQuoteSources()
     {
         $g = new QuoteGenerator(new \Quotes\Trump\QuoteSource());
-        $this->assertRandomQuote($g);
+        $this->assertNotEmpty((string)$g->retrieve(new RandomStrategy()));
         $g->setSource(new \Quotes\Kanye\QuoteSource());
-        $this->assertRandomQuote($g);
+        $this->assertNotEmpty((string)$g->retrieve(new RandomStrategy()));
     }
 
     public function testLastQuoteStrategy()
@@ -25,14 +25,5 @@ class QuoteGeneratorTest extends TestCase
         $lastQuote1 = $g->retrieve($strategy);
         $lastQuote2 = $g->retrieve($strategy);
         $this->assertEquals($lastQuote1, $lastQuote2);
-    }
-
-    private function assertRandomQuote(QuoteGenerator $g)
-    {
-        $this->assertInstanceOf(
-            'Quotes\Quote',
-            $g->retrieve(new RandomStrategy())
-        );
-        $this->assertNotEmpty((string)$g->retrieve(new RandomStrategy()));
     }
 }
