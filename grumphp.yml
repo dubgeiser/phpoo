@@ -10,12 +10,6 @@ parameters:
         phpstan:
             level: 5
         phpcs:
-            standard: "Doctrine"
-            ignore_patterns:
-                - "bin/*.php"
-                - "tests/*.php"
-                - "src/Kernel.php"
-                - "vendor/**/*"
         git_blacklist:
             keywords:
                 - "die("

@@ -5,4 +5,9 @@
     xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
     <rule ref="Doctrine"/>
+
+    <exclude-pattern>bin/*.php</exclude-pattern>
+    <exclude-pattern>tests/*.php</exclude-pattern>
+    <exclude-pattern>src/Kernel.php</exclude-pattern>
+    <exclude-pattern>vendor/**/*</exclude-pattern>
 </ruleset>
