@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Quotes\Kanye;
+namespace Quotes\Source;
 
 use Quotes\AttributableQuote;
 use Quotes\Author;
 use Quotes\Message;
 use Quotes\Quote;
-use Quotes\QuoteStrategy;
+use Quotes\Strategy\Strategy;
 
-class QuoteSource implements \Quotes\QuoteSource
+class Kanye implements Source
 {
-    public function retrieve(QuoteStrategy $strategy) : Quote
+    public function retrieve(Strategy $strategy) : Quote
     {
         return new AttributableQuote(new Message('TEST'), new Author('Kanye'));
     }

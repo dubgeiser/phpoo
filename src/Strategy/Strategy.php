@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Quotes;
+namespace Quotes\Strategy;
 
-interface QuoteStrategy
+use Quotes\Author;
+use Quotes\Quote;
+
+interface Strategy
 {
     public function setAuthor(Author $author) : void;
 

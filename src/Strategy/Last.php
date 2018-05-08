@@ -2,11 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Quotes;
+namespace Quotes\Strategy;
 
-use function array_rand;
+use Quotes\AttributableQuote;
+use Quotes\Author;
+use Quotes\Message;
+use Quotes\Quote;
+use function array_pop;
 
-class RandomStrategy implements QuoteStrategy
+class Last implements Strategy
 {
     /** @var Author */
     private $author;
@@ -21,7 +25,7 @@ class RandomStrategy implements QuoteStrategy
      */
     public function retrieve(array $quotes) : Quote
     {
-        $quote = $quotes[array_rand($quotes)];
+        $quote = array_pop($quotes);
         return new AttributableQuote(new Message($quote), $this->author);
     }
 }

@@ -2,18 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Quotes\Trump;
+namespace Quotes\Source;
 
 use Quotes\Author;
 use Quotes\Quote;
-use Quotes\QuoteStrategy;
+use Quotes\Strategy\Strategy;
+
 use function file_get_contents;
 use function json_decode;
 
 /**
  * Wraps calls to the public whatdoestrumpthink.com API.
  */
-class QuoteSource implements \Quotes\QuoteSource
+class Trump implements Source
 {
     /** @var string The url of the api. */
     private $url;
@@ -43,7 +44,7 @@ class QuoteSource implements \Quotes\QuoteSource
     /**
      * @return Quote A random Trump quote.
      */
-    public function retrieve(QuoteStrategy $strategy) : Quote
+    public function retrieve(Strategy $strategy) : Quote
     {
         $strategy->setAuthor($this->author);
         return $strategy->retrieve($this->quotes);

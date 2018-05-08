@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Quotes;
+namespace Quotes\Renderer;
 
-class HtmlQuoteRenderer implements Renderable
+use Quotes\Quote;
+
+class Html implements Renderable
 {
     /** @var Quote */
     private $quote;

@@ -5,7 +5,7 @@ namespace Test\Quotes;
 use PHPUnit\Framework\TestCase;
 
 use Quotes\Author;
-use Quotes\HtmlQuoteRenderer;
+use Quotes\Renderer\Html;
 use Quotes\Message;
 use Quotes\AttributableQuote;
 
@@ -14,7 +14,7 @@ class HtmlRendererTest extends TestCase
 {
     public function testOutput()
     {
-        $renderer = new HtmlQuoteRenderer(
+        $renderer = new Html(
             new AttributableQuote(
                 new Message('TEST'),
                 new Author('Per')
