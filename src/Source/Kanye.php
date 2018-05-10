@@ -4,16 +4,32 @@ declare(strict_types=1);
 
 namespace Quotes\Source;
 
-use Quotes\AttributableQuote;
 use Quotes\Author;
-use Quotes\Message;
-use Quotes\Quote;
-use Quotes\Strategy\Strategy;
 
 class Kanye implements Source
 {
-    public function retrieve(Strategy $strategy) : Quote
+    /** @var Author */
+    private $author;
+
+    /** @var String[] */
+    private $quotes;
+
+    public function __construct()
     {
-        return new AttributableQuote(new Message('TEST'), new Author('Kanye'));
+        $this->author = new Author('Kanye');
+        $this->quotes = ['TEST 1', 'TEST 2'];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function all() : array
+    {
+        return $this->quotes;
+    }
+
+    public function author() : Author
+    {
+        return $this->author;
     }
 }

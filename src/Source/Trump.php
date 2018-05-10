@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Quotes\Source;
 
 use Quotes\Author;
-use Quotes\Quote;
-use Quotes\Strategy\Strategy;
 
 use function file_get_contents;
 use function json_decode;
@@ -25,9 +23,6 @@ class Trump implements Source
     /** @var Author */
     private $author;
 
-    /** @var string[] */
-    private $quotes;
-
     /**
      * @param string $url     (optional) The URL of the API
      * @param int    $version (optional) The version of the API.
@@ -36,18 +31,24 @@ class Trump implements Source
     {
         $this->url     = $url;
         $this->version = $version;
-        $this->quotes  = json_decode($this->doRequest('quotes'))
-            ->messages->non_personalized;
         $this->author  = new Author('Trump');
     }
 
     /**
-     * @return Quote A random Trump quote.
+     * {@inheritDoc}
      */
-    public function retrieve(Strategy $strategy) : Quote
+    public function all() : array
     {
-        $strategy->setAuthor($this->author);
-        return $strategy->retrieve($this->quotes);
+        return json_decode($this->doRequest('quotes'))
+            ->messages->non_personalized;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function author() : Author
+    {
+        return $this->author;
     }
 
     /**

@@ -12,9 +12,19 @@ class QuoteGenerator
     /** @var Source */
     private $source;
 
-    public function __construct(Source $source)
+    /** @var Strategy */
+    private $strategy;
+
+
+    public function __construct(Source $source, Strategy $strategy)
     {
         $this->setSource($source);
+        $this->setStrategy($strategy);
+    }
+
+    public function retrieve() : Quote
+    {
+        return $this->strategy->retrieve($this->source);
     }
 
     public function setSource(Source $source) : void
@@ -22,8 +32,8 @@ class QuoteGenerator
         $this->source = $source;
     }
 
-    public function retrieve(Strategy $strategy) : Quote
+    public function setStrategy(Strategy $strategy) : void
     {
-        return $this->source->retrieve($strategy);
+        $this->strategy = $strategy;
     }
 }
