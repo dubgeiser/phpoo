@@ -8,4 +8,5 @@ There will be over-engineering, but it is generally to convey a purpose in manag
 
 
 [![Build Status](https://travis-ci.org/dubgeiser/phpoo.svg)](https://travis-ci.org/dubgeiser/phpoo)
-[![Code quality](https://scrutinizer-ci.com/g/dubgeiser/phpoo/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dubgeiser/phpoo)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a296903cd1c531607bac/maintainability)](https://codeclimate.com/github/dubgeiser/phpoo/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a296903cd1c531607bac/test_coverage)](https://codeclimate.com/github/dubgeiser/phpoo/test_coverage)
