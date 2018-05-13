@@ -8,6 +8,6 @@ use Quotes\Renderer\Renderable;
 
 interface Quote extends Renderable
 {
-    public function getMessage() : Message;
+    public function getText() : string;
     public function getAuthor() : Author;
 }

@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 use Quotes\AttributableQuote;
 use Quotes\Author;
-use Quotes\Message;
 
 class QuoteTest extends TestCase
 {
@@ -14,8 +13,9 @@ class QuoteTest extends TestCase
 
     public function setUp()
     {
-        $this->quote = new AttributableQuote(new Message('TEST'), new Author('Per'));
+        $this->quote = new AttributableQuote('TEST', new Author('Per'));
     }
+
     public function testToString()
     {
         $this->assertContains('TEST', (string) $this->quote);

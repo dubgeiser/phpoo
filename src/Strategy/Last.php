@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Quotes\Strategy;
 
 use Quotes\AttributableQuote;
-use Quotes\Message;
 use Quotes\Quote;
 use Quotes\Source\Source;
 
@@ -20,6 +19,6 @@ class Last implements Strategy
     {
         $quotes = $source->all();
         $quote  = array_pop($quotes);
-        return new AttributableQuote(new Message($quote), $source->author());
+        return new AttributableQuote($quote, $source->author());
     }
 }

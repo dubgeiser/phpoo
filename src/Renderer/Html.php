@@ -19,7 +19,7 @@ class Html implements Renderable
     public function __toString() : string
     {
         return '<blockquote><p>'
-            . (string) $this->quote->getMessage()
+            . $this->quote->getText()
             . ' -- '
             . (string) $this->quote->getAuthor()
             . '</blockquote></p>'

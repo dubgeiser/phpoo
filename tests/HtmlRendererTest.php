@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 use Quotes\Author;
 use Quotes\Renderer\Html;
-use Quotes\Message;
 use Quotes\AttributableQuote;
 
 
@@ -16,7 +15,7 @@ class HtmlRendererTest extends TestCase
     {
         $renderer = new Html(
             new AttributableQuote(
-                new Message('TEST'),
+                'TEST',
                 new Author('Per')
             )
         );

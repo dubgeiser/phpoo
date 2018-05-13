@@ -9,21 +9,21 @@ namespace Quotes;
  */
 class AttributableQuote implements Quote
 {
-    /** @var Message */
-    private $message;
+    /** @var string */
+    private $text;
 
     /** @var Author */
     private $author;
 
-    public function __construct(Message $message, Author $author)
+    public function __construct(string $text, Author $author)
     {
-        $this->message = $message;
-        $this->author  = $author;
+        $this->text   = $text;
+        $this->author = $author;
     }
 
-    public function getMessage() : Message
+    public function getText() : string
     {
-        return $this->message;
+        return $this->text;
     }
 
     public function getAuthor() : Author
@@ -33,12 +33,12 @@ class AttributableQuote implements Quote
 
     public function equals(AttributableQuote $other) : bool
     {
-        return $this->getMessage() === $other->getMessage()
+        return $this->getText() === $other->getText()
             && $this->getAuthor()  === $other->getAuthor();
     }
 
     public function __toString() : string
     {
-        return (string) $this->message . ' -- ' . (string) $this->author;
+        return $this->text . ' -- ' . (string) $this->author;
     }
 }
