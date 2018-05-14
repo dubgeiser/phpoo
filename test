@@ -12,5 +12,4 @@ use Quotes\Strategy\Random;
 $source    = new Trump();
 $strategy  = new Random();
 $generator = new QuoteGenerator($source, $strategy);
-
-var_dump($generator->retrieve());
+echo $generator->retrieve(), "\n";
