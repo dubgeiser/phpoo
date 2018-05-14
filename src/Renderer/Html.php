@@ -5,24 +5,15 @@ declare(strict_types=1);
 namespace Quotes\Renderer;
 
 use Quotes\Attributable;
-use Quotes\Renderable;
 
-class Html implements Renderable
+class Html
 {
-    /** @var Attributable */
-    private $quote;
-
-    public function __construct(Attributable $quote)
-    {
-        $this->quote = $quote;
-    }
-
-    public function __toString() : string
+    public function render(Attributable $quote) : string
     {
         return '<blockquote><p>'
-            . $this->quote->getText()
+            . $quote->getText()
             . ' -- '
-            . (string) $this->quote->getAuthor()
+            . (string) $quote->getAuthor()
             . '</blockquote></p>'
             . "\n";
     }

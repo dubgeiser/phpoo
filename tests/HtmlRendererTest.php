@@ -13,15 +13,16 @@ class HtmlRendererTest extends TestCase
 {
     public function testOutput()
     {
-        $renderer = new Html(
-            new Quote(
-                'TEST',
-                new Author('Per')
-            )
+        $renderer = new Html();
+        $quote1 = new Quote('TEST1', new Author('Testermans 1'));
+        $quote2 = new Quote('TEST2', new Author('Testermans 2'));
+        $this->assertContains(
+            '<blockquote><p>TEST1 -- Testermans 1</blockquote></p>',
+            (string) $renderer->render($quote1)
         );
         $this->assertContains(
-            '<blockquote><p>TEST -- Per</blockquote></p>',
-            (string) $renderer
+            '<blockquote><p>TEST2 -- Testermans 2</blockquote></p>',
+            (string) $renderer->render($quote2)
         );
     }
 }
