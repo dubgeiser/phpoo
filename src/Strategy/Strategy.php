@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Quotes\Strategy;
 
-use Quotes\Quote;
+use Quotes\Attributable;
 use Quotes\Source\Source;
 
 /**
@@ -12,5 +12,5 @@ use Quotes\Source\Source;
  */
 interface Strategy
 {
-    public function retrieve(Source $source) : Quote;
+    public function retrieve(Source $source) : Attributable;
 }

@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Quotes\Renderer;
 
-use Quotes\Quote;
+use Quotes\Attributable;
 
 class Html implements Renderable
 {
-    /** @var Quote */
+    /** @var Attributable */
     private $quote;
 
-    public function __construct(Quote $quote)
+    public function __construct(Attributable $quote)
     {
         $this->quote = $quote;
     }

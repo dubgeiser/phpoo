@@ -4,7 +4,7 @@ namespace Test\Quotes;
 
 use PHPUnit\Framework\TestCase;
 
-use Quotes\AttributableQuote;
+use Quotes\Quote;
 use Quotes\Author;
 
 class QuoteTest extends TestCase
@@ -13,7 +13,7 @@ class QuoteTest extends TestCase
 
     public function setUp()
     {
-        $this->quote = new AttributableQuote('TEST', new Author('Per'));
+        $this->quote = new Quote('TEST', new Author('Per'));
     }
 
     public function testToString()

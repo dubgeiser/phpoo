@@ -22,7 +22,7 @@ class QuoteGenerator
         $this->setStrategy($strategy);
     }
 
-    public function retrieve() : Quote
+    public function retrieve() : Attributable
     {
         return $this->strategy->retrieve($this->source);
     }
