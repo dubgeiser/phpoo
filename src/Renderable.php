@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Quotes\Renderer;
+namespace Quotes;
 
 interface Renderable
 {

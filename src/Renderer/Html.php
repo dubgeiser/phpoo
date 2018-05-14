@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Quotes\Renderer;
 
 use Quotes\Attributable;
+use Quotes\Renderable;
 
 class Html implements Renderable
 {
