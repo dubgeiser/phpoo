@@ -2,22 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Quotes\Renderer;
+namespace Test\Quotes\Renderer;
 
-class Html extends TextBased
+use Quotes\Renderer\TextBased;
+
+class TestTextRenderer extends TextBased
 {
     public function pre() : string
     {
-        return '<blockquote><p>';
+        return "START\n";
     }
 
     public function between() : string
     {
-        return ' -- ';
+        return "\n";
     }
 
     public function post() : string
     {
-        return '</blockquote></p>';
+        return "\nEND\n";
     }
 }

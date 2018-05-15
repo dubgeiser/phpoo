@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Quotes;
+namespace Test\Quotes\Renderer;
 
 use PHPUnit\Framework\TestCase;
 
@@ -9,7 +9,7 @@ use Quotes\Renderer\Html;
 use Quotes\Quote;
 
 
-class HtmlRendererTest extends TestCase
+class HtmlTest extends TestCase
 {
     public function testOutput()
     {
