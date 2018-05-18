@@ -10,7 +10,7 @@ use function sprintf;
 /**
  * The author of quote.
  */
-class Author
+class Author implements Renderable
 {
     public const NAME_LEN_MIN = 1;
     public const NAME_LEN_MAX = 200;
